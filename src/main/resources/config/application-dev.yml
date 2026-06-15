@@ -1,0 +1,19 @@
+### PROPIEDADES DE APLICACION en modo 'dev'
+### Nota: Adaptar este fichero conforme a las necesidades del entorno de Desarrollo Local
+        
+tap:  
+  cache:
+    mode: localstorage   
+    enabled: false
+    
+management:
+    endpoints.web.exposure.include: '*'
+  
+logging:   
+  level:
+    com.telefonica.bst3: TRACE   
+    com.telefonica.coco.logging.execution: DEBUG  
+    org.eclipse.persistence.logging.sql: DEBUG
+  
+server:
+  port: 9091  
