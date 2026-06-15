@@ -14,13 +14,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.math.BigDecimal;
 import java.util.Arrays;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 
@@ -32,9 +30,8 @@ import com.telefonica.coco.boot.test.config.ResourceTest;
 import com.telefonica.coco.core.domain.types.DateFormatter;
 import com.telefonica.coco.core.domain.types.DateType;
 
-@RunWith(SpringRunner.class)
 @ResourceTest
-public class PruebaGitHubResourceTest {
+class PruebaGitHubResourceTest {
 
     @Autowired
     private MockMvc mvc;
@@ -46,7 +43,7 @@ public class PruebaGitHubResourceTest {
     private PruebaGitHubService service;
 
     @Test
-    public void testGetBank() throws Exception {
+    void testGetBank() throws Exception {
 
         GetBank_OUT out = new GetBank_OUT();
 
@@ -69,7 +66,7 @@ public class PruebaGitHubResourceTest {
     }
 
     @Test
-    public void testGetBankOffice() throws Exception {
+    void testGetBankOffice() throws Exception {
 
         GetBankOffice_OUT out = new GetBankOffice_OUT();
 
@@ -83,7 +80,7 @@ public class PruebaGitHubResourceTest {
     }
 
     @Test
-    public void testLoadFileRecord() throws Exception {
+    void testLoadFileRecord() throws Exception {
 
         RequestBuilder request = put(contextPath + "///banks/filerecord/{record}", "test")
                 .contentType(MediaType.APPLICATION_JSON).content("{}");
@@ -94,7 +91,7 @@ public class PruebaGitHubResourceTest {
     }
 
     @Test
-    public void testReadFileRecord() throws Exception {
+    void testReadFileRecord() throws Exception {
 
         ReadFileRecord_OUT out = new ReadFileRecord_OUT();
 

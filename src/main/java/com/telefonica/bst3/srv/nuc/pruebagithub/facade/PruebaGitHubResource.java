@@ -88,7 +88,7 @@ public class PruebaGitHubResource implements StatusCodeMappingContributor {
 
     @Override
     public void addStatusCodeMappings(Map<String, HttpStatus> map) {
-        // TODO: Concretar los mapeos con los códigos de error correctos
+        // TODO: Concretar los mapeos con los cÃ³digos de error correctos
 
     }
 
