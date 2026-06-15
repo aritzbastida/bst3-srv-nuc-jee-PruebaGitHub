@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Version 3.0 de la capacidad OP_getBank -->
+<!-- Generated with GenerarXSD v5.0 -->
+<xsd:schema 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:telf="http://telefonica.es" 
+xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:extensionBindingPrefixes="telf" jaxb:version="2.0" 
+xmlns:xsd_1="http://telefonica.com/bst3/srv/PruebaGitHub/msg/getBank-v4"
+targetNamespace="http://telefonica.com/bst3/srv/PruebaGitHub/msg/getBank-v4" elementFormDefault="qualified">
+
+ <xsd:complexType name="GetBank_IN">
+     <xsd:sequence>
+      <xsd:element name="Id" type="xsd:integer" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+           <xsd:documentation><![CDATA[Path Param obligatorio de tipo Long]]></xsd:documentation>
+           <xsd:appinfo>
+         		<telf:stereotype>pathParam</telf:stereotype>
+           </xsd:appinfo>		   
+        </xsd:annotation>
+      </xsd:element>	  
+      <xsd:element name="Code" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+           <xsd:documentation><![CDATA[Query Param obligatorio, de tipo String]]></xsd:documentation>
+           <xsd:appinfo>
+         		<telf:stereotype>queryParam</telf:stereotype>
+           </xsd:appinfo>		   
+        </xsd:annotation>
+      </xsd:element>	  
+      <xsd:element name="Tax" type="xsd:decimal" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+           <xsd:documentation><![CDATA[Query Param opcional, de tipo BigDecimal]]></xsd:documentation>
+           <xsd:appinfo>
+         		<telf:stereotype>queryParam</telf:stereotype>
+           </xsd:appinfo>		   
+        </xsd:annotation>
+      </xsd:element>
+	  <xsd:element name="startDate" type="xsd:date" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+           <xsd:documentation><![CDATA[Query Param opcional de tipo Date-time]]></xsd:documentation>
+           <xsd:appinfo>
+         		<telf:stereotype>queryParam</telf:stereotype>
+           </xsd:appinfo>		   
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="endDate" type="xsd:date" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+           <xsd:documentation><![CDATA[Query Param opcional de tipo Date]]></xsd:documentation>
+           <xsd:appinfo>
+         		<telf:stereotype>queryParam</telf:stereotype>
+           </xsd:appinfo>		   
+        </xsd:annotation>
+      </xsd:element>
+		<xsd:element name="Optional" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+           <xsd:documentation><![CDATA[Query Param opcional, de tipo Optional]]></xsd:documentation>
+           <xsd:appinfo>
+         		<telf:stereotype>queryParam</telf:stereotype>
+           </xsd:appinfo>		   
+        </xsd:annotation>
+      </xsd:element>	  
+      <xsd:element name="ProductId" type="xsd:string" minOccurs="0" maxOccurs="5">
+        <xsd:annotation>
+           <xsd:documentation><![CDATA[Query Param opcional de tipo String[]]]></xsd:documentation>
+		   <xsd:appinfo>
+         		<telf:stereotype>queryParam</telf:stereotype>
+           </xsd:appinfo>
+        </xsd:annotation>
+      </xsd:element>	 	  
+     </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="GetBank_IN" type="xsd_1:GetBank_IN" />
+
+ <xsd:complexType name="BankEntity_DTO_OUT">
+  <xsd:annotation>
+   <xsd:documentation>BankEntity entity information: Oficial reference of a bank 
+ 
+#ESPAÑOL#   BANCO 
+Referencia oficial para cada entidad bancaria.
+Concepto sometido a vigencias
+Country entity information: This is an example of a concrete Geographic Location entity. </xsd:documentation>
+  </xsd:annotation>
+     <xsd:sequence>
+      <xsd:element name="Id" type="xsd:decimal" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Unique no functional identifier of the concept.
+ 
+#ESPAÑOL#  Código único no funcional de la entidad bancaria.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BankType" type="xsd_1:BankType" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Bank type in order to know the finantial operation class it can attend.
+#ESPAÑOL# Tipo de banco; indica las clases de operaciones financieras que puede atender.
+Los tipos existentes son: CO - Crédito oficial, BP - Banco, CA - Caja de Ahorro, CC - Cooperativa de crédito, EFC - Establecimiento financiero de Crédito, SECC - Sucursal de crédito extranjera comunitaria, SECE- Sucursal de crédito extranjera extracomunitaria, OR - oficina de representación en España de entidad de crédito extranjera, SGR - Sociedad de garantía recíproca, SR - Sociedad de reafianzamiento, ECVT - Establecimiento de compra/venta de modena extranjera y/o gestión de transferencias, ST - Sociedad de tasación.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BICCode" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Bank Identifier Code
+#ESPAÑOL#  Para cuentas IBAN, el código BIC (Bank Identifier Code) completa la identificación de la cuenta IBAN.
+El código BIC completo está formado por 11 posiciones, de las cuales las 4 primeras son la codificación alfa-4 del banco. El resto son País alfa2, población alfa-2 y sucursal alfa-3.
+Por ejemplo, BBVA en Madrid sería: BBVAESMMXXX
+Cuando no se informa la sucursal se asume que se trata de la sede principal del banco.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Code" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>The identification code of the payment service provider (the bank). It lenght is country's dependent. For instance, in Germany is a 8 number code, in Spain is 4 number, in United Kindom is 4 alphabetic, in Moldavia is 2 alphanumeric.
+
+#ESPAÑOL# Codificación del proveedor de servicios de pago. EL formato es dependiente del país. Por ejemplo, en Alemania es un código numérico de 8 posiciones, es España es numérico de 4, en Reino Unido es alfabético de 4 posiciones, en la república de Moldavia son 2 posiciones alfanuméricas...
+Debido a esta variabilidad, el formato y la longitud, se registra en ContryBanlCodification.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CountryId" type="xsd:integer" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Unique identifier for Place. More information about Place in the description of the entity</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Bank name
+#ESPAÑOL#  Nombre de la entidad bancaria</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Origin" type="xsd_1:Origin" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Informaction origin: Spain Bank or other.
+#ESPAÑOL# Origen de la información: 1 - Del Banco de España 2- Fuente ajena al banco de España.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ValidFor" type="xsd_1:TimePeriod" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>The period during which the concept is applicable.
+ #ESPAÑOL#  Inicio del periodo de vigencia del concepto: fecha de inicio de vigencia para el objeto considerado. Por defecto, se sitúa el inicio de vigencia en TO_DATE('01/01/2015 00:00:00', 'DD/MM/YYYY HH24:mi:ss') - Final del periodo de vigencia del concepto: fecha de final de vigencia para el objeto considerado. Por defecto el final de vigencia se deja sin informar o bien se sitúa en TO_DATE('31/12/2500 00:00:00', 'DD/MM/YYYY HH24:mi:ss')</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="WindowPayment" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>When a customer has payment in window, in the payment notice attached to the bill tell all banks where you can make payment. These banks are the same for all provinces.
+ 
+#ESPAÑOL#  
+Cuando un cliente tiene pago por ventanilla, en el aviso de pago que se adjunta a la factura se le indican todas las entidades bancarias en las que puede hacer efectivo el pago. Esas entidades bancarias son las mismas para todo el territorio nacional.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+     </xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:complexType name="GetBank_OUT">
+     <xsd:sequence>
+      <xsd:element name="BankEntity" type="xsd_1:BankEntity_DTO_OUT" minOccurs="0" maxOccurs="1" />
+     </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="GetBank_OUT" type="xsd_1:GetBank_OUT" />
+
+ <xsd:simpleType name="BankType">
+  <xsd:restriction base="xsd:string">
+    <xsd:annotation>
+     <xsd:documentation>BP-Banco|CA-Caja de Ahorro|CC-Cooperativa de Crédito|CO-Crédito oficial|ECVT-Establecimiento de compra/venta de moneda extranjera y/o gestión de transferencias|EFC-Establecimiento financiero de crédito|OR-Oficina de representación en España de entidad de crédito extranjera|SECC-Sociedad de crédito extranjera comunitaria|SECE-Sucursal de crédito extranjera extracomunitaria|SGR-Sociedad de garantía recíproca|SR-Sociedad de reafianzamiento|ST-Sociedad de tasación</xsd:documentation>
+    </xsd:annotation>
+    <xsd:pattern value="BP|CA|CC|CO|ECVT|EFC|OR|SECC|SECE|SGR|SR|ST"/>
+  </xsd:restriction>
+
+ </xsd:simpleType>
+
+ <xsd:simpleType name="Origin">
+  <xsd:restriction base="xsd:string">
+    <xsd:annotation>
+     <xsd:documentation>1-Banco de España|2-Ajeno al Banco de España</xsd:documentation>
+    </xsd:annotation>
+    <xsd:pattern value="1|2"/>
+  </xsd:restriction>
+
+ </xsd:simpleType>
+
+ <xsd:complexType name="TimePeriod">
+  <xsd:annotation>
+   <xsd:documentation>A base / value business entity used to represent a period of time, between two timepoints</xsd:documentation>
+  </xsd:annotation>
+     <xsd:sequence>
+      <xsd:element name="EndDateTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>An instant of time, ending at the TimePeriod</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StartDateTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>An instant of time, starting at the TimePeriod</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+     </xsd:sequence>
+ </xsd:complexType>
+</xsd:schema>
+

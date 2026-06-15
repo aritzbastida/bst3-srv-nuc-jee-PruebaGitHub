@@ -1,0 +1,209 @@
+{
+ "id": "13c62bf0-ecbf-11e3-6b9f-d6a957db783a" ,
+ "name": "bst3",
+ "fullName": "Gestion de Informacion Transversal",
+ "timestamp": "1579261645" ,
+ "schemaBBDD": "UMD_GIFTRA2" ,
+
+  "srv-nuc-v4" :  [{
+   "name": "PruebaGitHub",
+   "serviceType": "Business",   
+   "version": "4.0",
+   "versionAT": "4",
+   "revision": 1,
+   "guid": "2cd73c22-27d2-11ea-2291-005056ad40c0",
+   "guidBBDD": "1706478230,0,106",
+   "RESTful": true,
+   "asyncClient": false,   
+   "hasExposition": true,
+   "hasIndirectDataSource": true,
+   "hasExpEndPoints": true,
+   "interfaceTechnology": "REST+SOAP",
+   "implementationTechnology": "JEE",
+   "pathBase": "/banks",
+   "op" :  [{	 
+      "name": "getBank",
+      "URI": "/bank/{id}",
+      "method": "GET",
+      "exchangePattern": "SRR",
+      "bodyIn": false,
+      "bodyOut": true,
+      "parameters": [
+         {
+           "name": "id",
+           "in": "path",
+           "description": "Path Param obligatorio de tipo Long",
+           "required": true,
+           "type": "integer"
+         },{
+           "name": "code",
+           "in": "query",
+           "description": "Query Param obligatorio, de tipo String",
+           "required": true,
+           "type": "string"
+         },{
+           "name": "tax",
+           "in": "query",
+           "description": "Query Param opcional, de tipo BigDecimal",
+           "required": false,
+           "type": "number"
+         },{
+			"name": "startDate",
+           "in": "query",
+           "description": "Query Param opcional de tipo Date-time",
+           "required": false,
+           "type": "string",
+		   "format": "date-time"		   
+         },{
+           "name": "endDate",
+           "in": "query",
+           "description": "Query Param opcional de tipo Date",
+           "required": false,
+           "type": "string",
+		   "format": "date"		   
+         },{
+			"name": "optional",
+           "in": "query",
+           "description": "Query Param opcional de tipo boolean",
+           "required": false,
+           "type": "boolean"	   
+         },{
+           "name": "productIds",
+           "in": "query",
+           "description": "Query Param opcional de tipo String[]",
+           "required": false,
+           "type": "array",
+           "items":{
+               "type": "string"
+           }
+         }		 
+      ],
+      "pagination": {
+        "maxPageSize": "200",
+        "optimalPageSize" : "50"
+      },
+      "cache": {
+        "required": "true",
+        "type": "Alta",
+        "location": "",
+        "key": ""
+     },
+      "sorting": {
+        "required": "true",
+		"default": "DSC_1",
+        "configuration": "DSC_1, DSC_2"
+      },
+      "views": [
+		"min",
+		"all"
+	  ]
+    },{
+      "name": "getBankOffice",
+      "URI": "/bankoffice",
+      "method": "GET",
+      "exchangePattern": "SRR",
+      "bodyIn": false,
+      "bodyOut": true,
+      "parameters": [
+      ],
+      "pagination": {
+        "maxPageSize": "",
+        "optimalPageSize" : ""
+      },
+      "cache": {
+        "required": "true",
+        "type": "Alta",
+        "location": "",
+        "key": ""
+     },
+      "sorting": {
+        "required": "false",
+        "configuration": ""
+      }
+    },{ 
+      "name": "loadFileRecord",
+      "URI": "/filerecord/{record}",
+      "method": "PUT",
+      "exchangePattern": "One way",
+      "bodyIn": true,
+      "bodyOut": false,
+      "parameters": [
+         {
+           "name": "record",
+           "in": "path",
+           "description": "Path Param obligatorio de tipo String",
+           "required": true,
+           "type": "string"
+         }		 
+      ],
+      "pagination": {
+        "maxPageSize": "",
+        "optimalPageSize" : ""
+      },
+      "cache": {
+        "required": "false",
+        "type": "",
+        "location": "",
+        "key": ""
+     },
+      "sorting": {
+        "required": "false",
+        "configuration": ""
+      }
+    },{	  
+      "name": "readFileRecord",
+      "URI": "/filerecord",
+      "method": "POST",
+      "exchangePattern": "SRR",
+      "bodyIn": true,
+      "bodyOut": true,
+      "parameters": [
+      ],
+      "pagination": {
+        "maxPageSize": "",
+        "optimalPageSize" : ""
+      },
+      "cache": {
+        "required": "false",
+        "type": "",
+        "location": "",
+        "key": ""
+     },
+      "sorting": {
+        "required": "false",
+        "configuration": ""
+     }	
+   }],
+   "initializers" :  [
+   ],
+   "srv-util" :  [
+   ],
+   "srv-nuc" :  [
+   ],
+   "srv-exp" :  [
+   ],
+   "dao" :  [{
+     "application": "bst3",
+     "name": "PruebaGitHub",
+     "version": "4.0",
+     "revision": 1,
+     "guid": "c46c25a9-2809-11ea-7581-005056ad2a7f",
+     "guidBBDD": "1706478230,0,106",
+     "scope": "Privado",
+     "implementationTechnology": "JEE",
+     "model" :  [{
+       "application": "bst3",
+       "name": "bst3",
+       "version": "3.0",
+       "guid": "a68d40ab-6085-11e5-4c81-005056ad12aa",
+       "guidBBDD": "1706478230,0,106",
+       "scope": "Restringido",
+       "submodelRep": false,
+       "sharedModel": true,
+       "implementationTechnology": "JEE"
+     }]
+   }]
+ }],
+"eof":{}
+}
+

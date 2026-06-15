@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Version 3.0 de la capacidad OP_loadFileRecord -->
+<!-- Generated with GenerarXSD v5.0 -->
+<xsd:schema 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:telf="http://telefonica.es" 
+xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:extensionBindingPrefixes="telf" jaxb:version="2.0" 
+xmlns:xsd_1="http://telefonica.com/bst3/srv/PruebaGitHub/msg/loadFileRecord-v4"
+targetNamespace="http://telefonica.com/bst3/srv/PruebaGitHub/msg/loadFileRecord-v4" elementFormDefault="qualified">
+
+ <xsd:complexType name="BankEntity_DTO_IN">
+  <xsd:annotation>
+   <xsd:documentation>BankEntity entity information: Oficial reference of a bank 
+ 
+#ESPAÑOL#   BANCO 
+Referencia oficial para cada entidad bancaria.
+Concepto sometido a vigencias
+Country entity information: This is an example of a concrete Geographic Location entity. </xsd:documentation>
+  </xsd:annotation>
+     <xsd:sequence>
+      <xsd:element name="BankType" type="xsd_1:BankType" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Bank type in order to know the finantial operation class it can attend.
+#ESPAÑOL# Tipo de banco; indica las clases de operaciones financieras que puede atender.
+Los tipos existentes son: CO - Crédito oficial, BP - Banco, CA - Caja de Ahorro, CC - Cooperativa de crédito, EFC - Establecimiento financiero de Crédito, SECC - Sucursal de crédito extranjera comunitaria, SECE- Sucursal de crédito extranjera extracomunitaria, OR - oficina de representación en España de entidad de crédito extranjera, SGR - Sociedad de garantía recíproca, SR - Sociedad de reafianzamiento, ECVT - Establecimiento de compra/venta de modena extranjera y/o gestión de transferencias, ST - Sociedad de tasación.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Code" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>The identification code of the payment service provider (the bank). It lenght is country's dependent. For instance, in Germany is a 8 number code, in Spain is 4 number, in United Kindom is 4 alphabetic, in Moldavia is 2 alphanumeric.
+
+#ESPAÑOL# Codificación del proveedor de servicios de pago. EL formato es dependiente del país. Por ejemplo, en Alemania es un código numérico de 8 posiciones, es España es numérico de 4, en Reino Unido es alfabético de 4 posiciones, en la república de Moldavia son 2 posiciones alfanuméricas...
+Debido a esta variabilidad, el formato y la longitud, se registra en ContryBanlCodification.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CountryId" type="xsd:integer" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Unique identifier for Place. More information about Place in the description of the entity</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Bank name
+#ESPAÑOL#  Nombre de la entidad bancaria</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Origin" type="xsd_1:Origin" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Informaction origin: Spain Bank or other.
+#ESPAÑOL# Origen de la información: 1 - Del Banco de España 2- Fuente ajena al banco de España.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ValidFor" type="xsd_1:TimePeriod" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>The period during which the concept is applicable.
+ #ESPAÑOL#  Inicio del periodo de vigencia del concepto: fecha de inicio de vigencia para el objeto considerado. Por defecto, se sitúa el inicio de vigencia en TO_DATE('01/01/2015 00:00:00', 'DD/MM/YYYY HH24:mi:ss') - Final del periodo de vigencia del concepto: fecha de final de vigencia para el objeto considerado. Por defecto el final de vigencia se deja sin informar o bien se sitúa en TO_DATE('31/12/2500 00:00:00', 'DD/MM/YYYY HH24:mi:ss')</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="WindowPayment" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>When a customer has payment in window, in the payment notice attached to the bill tell all banks where you can make payment. These banks are the same for all provinces.
+ 
+#ESPAÑOL#  
+Cuando un cliente tiene pago por ventanilla, en el aviso de pago que se adjunta a la factura se le indican todas las entidades bancarias en las que puede hacer efectivo el pago. Esas entidades bancarias son las mismas para todo el territorio nacional.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+     </xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:complexType name="BankOffice_DTO_IN">
+  <xsd:annotation>
+   <xsd:documentation>BankOffice entity information: Branch of a bank.
+ 
+#ESPAÑOL#  SUCURSAL BANCARIA 
+Sucursal de una entidad bancaria.
+Además de la codificación CCC(Código Cuenta Cliente) de ámbito nacional, permite registrar el número de sucursal del BIC (Bank Identifier Code) que completa la codificación de una cuenta IBAN.
+El BIC a nivel de sucursal está formado por 11 posiciones:
+BBBB -BANCO
+PP - país
+MM -población
+XXX - sucursal
+banco, país y población se refieren a la sede social del banco, por lo que se guardan en ENTIDAD BANCO, en la sucursal, sólo se registra el secuencial de sucursal que además es opcional.
+Concepto sometido a vigencias
+Street entity information: space that allows the movement of people, animals and/or vehicles, offering access to buildings, grounds, places, etc.</xsd:documentation>
+  </xsd:annotation>
+     <xsd:sequence>
+      <xsd:element name="BankOfficeBICCode" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>BIC branch code. #ESPAÑOL# Código de 3 posiciones que identifica una sucursal según la codificación BIC. Para la sede principal, el valor acordado es XXX</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BranchType" type="xsd_1:BranchType" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Branch office type in order to know the finantial operation class it can attend.
+#ESPAÑOL# Tipo de sucursal; indica las clases de operaciones financieras que puede atender. Por ejemplo las sucursales no vigentes admiten operaciones de cargo, pero no devoluciones.
+Los tipos existentes son: 0 - Oficina principal, 1 - Agencia urbana, 2 - Oficina no operativa al público, 7 - Sucursal no vigente, 8 - Agente de Entidad de Crédito, 9 - Centro de proceso, departamento central, centro de compensación, etc.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Code" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Bank branch code.
+#ESPAÑOL#  Código de sucursal bancaria. Hay entidades bancarias que pese a tener sucursales, las mismas no tienen código formalizado.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StreetId" type="xsd:integer" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>Unique identifier for Place. More information about Place in the description of the entity</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ValidFor" type="xsd_1:TimePeriod" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>The period during which the concept is applicable.
+ #ESPAÑOL#  Inicio del periodo de vigencia del concepto: fecha de inicio de vigencia para el objeto considerado. Por defecto, se sitúa el inicio de vigencia en TO_DATE('01/01/2015 00:00:00', 'DD/MM/YYYY HH24:mi:ss') - Final del periodo de vigencia del concepto: fecha de final de vigencia para el objeto considerado. Por defecto el final de vigencia se deja sin informar o bien se sitúa en TO_DATE('31/12/2500 00:00:00', 'DD/MM/YYYY HH24:mi:ss')</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+     </xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:complexType name="LoadFileRecord_IN">
+     <xsd:sequence>
+      <xsd:element name="Action" type="xsd:integer" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>The values range: 1 Load BankEntity 2 Load BankOffice 3 LoadBankOffice and complete BankEntity</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BankEntity" type="xsd_1:BankEntity_DTO_IN" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="BankOffice" type="xsd_1:BankOffice_DTO_IN" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Record" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+           <xsd:documentation><![CDATA[Path Param obligatorio, de tipo String]]></xsd:documentation>
+           <xsd:appinfo>
+         		<telf:stereotype>pathParam</telf:stereotype>
+           </xsd:appinfo>		   
+        </xsd:annotation>
+      </xsd:element>	  
+     </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="LoadFileRecord_IN" type="xsd_1:LoadFileRecord_IN" />
+
+ <xsd:simpleType name="BankType">
+  <xsd:restriction base="xsd:string">
+    <xsd:annotation>
+     <xsd:documentation>BP-Banco|CA-Caja de Ahorro|CC-Cooperativa de Crédito|CO-Crédito oficial|ECVT-Establecimiento de compra/venta de moneda extranjera y/o gestión de transferencias|EFC-Establecimiento financiero de crédito|OR-Oficina de representación en España de entidad de crédito extranjera|SECC-Sociedad de crédito extranjera comunitaria|SECE-Sucursal de crédito extranjera extracomunitaria|SGR-Sociedad de garantía recíproca|SR-Sociedad de reafianzamiento|ST-Sociedad de tasación</xsd:documentation>
+    </xsd:annotation>
+    <xsd:pattern value="BP|CA|CC|CO|ECVT|EFC|OR|SECC|SECE|SGR|SR|ST"/>
+  </xsd:restriction>
+
+ </xsd:simpleType>
+
+ <xsd:simpleType name="Origin">
+  <xsd:restriction base="xsd:string">
+    <xsd:annotation>
+     <xsd:documentation>1-Banco de España|2-Ajeno al Banco de España</xsd:documentation>
+    </xsd:annotation>
+    <xsd:pattern value="1|2"/>
+  </xsd:restriction>
+
+ </xsd:simpleType>
+
+ <xsd:simpleType name="BranchType">
+  <xsd:restriction base="xsd:string">
+    <xsd:annotation>
+     <xsd:documentation>0-Oficina Principal|1-Agencia Urbana|2-Oficina no operativa al público|7-Oficina no vigente|8-Agente de Entidad de Crédito|9-Departamento Central o Centro de Proceso</xsd:documentation>
+    </xsd:annotation>
+    <xsd:pattern value="0|1|2|7|8|9"/>
+  </xsd:restriction>
+
+ </xsd:simpleType>
+
+ <xsd:complexType name="TimePeriod">
+  <xsd:annotation>
+   <xsd:documentation>A base / value business entity used to represent a period of time, between two timepoints</xsd:documentation>
+  </xsd:annotation>
+     <xsd:sequence>
+      <xsd:element name="EndDateTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>An instant of time, ending at the TimePeriod</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StartDateTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>An instant of time, starting at the TimePeriod</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+     </xsd:sequence>
+ </xsd:complexType>
+</xsd:schema>
+

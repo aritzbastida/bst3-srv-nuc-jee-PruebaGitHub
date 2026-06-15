@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Version 3.0 de la capacidad OP_readFileRecord -->
+<!-- Generated with GenerarXSD v5.0 -->
+<xsd:schema 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:xsd_1="http://telefonica.com/bst3/srv/PruebaGitHub/msg/readFileRecord-v4"
+targetNamespace="http://telefonica.com/bst3/srv/PruebaGitHub/msg/readFileRecord-v4" elementFormDefault="qualified">
+
+ <xsd:complexType name="ReadFileRecord_OUT">
+     <xsd:sequence>
+      <xsd:element name="Action" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>The values range: 
+ 
+  1 Load BankEntity
+  2 Load BankOffice
+  3 LoadBankOffice and complete BankEntity</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ListTable" type="xsd_1:ListTable_DTO_OUT" minOccurs="0" maxOccurs="unbounded" />
+     </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="ReadFileRecord_OUT" type="xsd_1:ReadFileRecord_OUT" />
+
+ <xsd:complexType name="ReadFileRecord_IN">
+     <xsd:sequence>
+      <xsd:element name="FilePath" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>File directory path.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+     </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="ReadFileRecord_IN" type="xsd_1:ReadFileRecord_IN" />
+
+ <xsd:complexType name="ListTable_DTO_OUT">
+  <xsd:annotation>
+   <xsd:documentation>Contains the rows of the file.</xsd:documentation>
+  </xsd:annotation>
+     <xsd:sequence>
+      <xsd:element name="TableName" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>table name identifier</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ListColumn" type="xsd_1:ListColumn_DTO_OUT" minOccurs="1" maxOccurs="unbounded" />
+     </xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:complexType name="ListColumn_DTO_OUT">
+  <xsd:annotation>
+   <xsd:documentation>Contains the columns of each row</xsd:documentation>
+  </xsd:annotation>
+     <xsd:sequence>
+      <xsd:element name="ColumName" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>record identifier</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ColumnValue" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>identifier value</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+     </xsd:sequence>
+ </xsd:complexType>
+</xsd:schema>
+
