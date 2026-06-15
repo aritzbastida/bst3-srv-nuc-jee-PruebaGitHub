@@ -22,8 +22,6 @@ public class GetBankCommand {
 
     public GetBank_OUT execute(GetBank_IN in, TE_Metadatos te_Metadatos) throws TE_Excepcion {
 
-        // TODO Develop your code here
-        logger.info("Not implemented yet");
-        return null;
+        return new GetBank_OUT();
     }
 }

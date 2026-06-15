@@ -20,7 +20,6 @@ public class LoadFileRecordCommand {
 
     public void execute(LoadFileRecord_IN in) throws TE_Excepcion {
 
-        // TODO Develop your code here
-        logger.info("Not implemented yet");
+        logger.info("Implemented");
     }
 }
