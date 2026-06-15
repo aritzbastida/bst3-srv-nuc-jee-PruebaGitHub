@@ -1,0 +1,15 @@
+
+
+tap:
+  data:
+    datasource:
+      url: jdbc:oracle:thin:@//tehcsol003c-rowrz-scan.bemi.noproductivo.oraclevcn.com:50001/DTLCO0  
+      username: UOD_GIFTRA4
+      password: temporal1
+      schema-username: UMD_GIFTRA4   
+ 
+logging:   
+  level:
+    com.telefonica.bst3: TRACE   
+    com.telefonica.coco.logging.execution: DEBUG  
+    org.eclipse.persistence.logging.sql: DEBUG
