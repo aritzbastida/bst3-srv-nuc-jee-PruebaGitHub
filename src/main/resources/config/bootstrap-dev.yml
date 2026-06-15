@@ -1,8 +1,0 @@
-### PROPIEDADES DE ARRANQUE en modo 'dev'
-### Nota: Adaptar este fichero conforme a las necesidades del entorno de Desarrollo Local
-
-tap:  
-  config-server:
-    connection-string: t3zk-zook-intr-client-pca-t3zk-desa-bck.be.ndp.ocjc4pgpre02.serv.dev.dc.es.telefonica:5085
-
-               

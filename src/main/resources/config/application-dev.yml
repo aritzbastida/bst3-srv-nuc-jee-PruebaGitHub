@@ -1,6 +1,13 @@
 ### PROPIEDADES DE APLICACION en modo 'dev'
 ### Nota: Adaptar este fichero conforme a las necesidades del entorno de Desarrollo Local
-        
+   
+spring:
+  config:
+    import: 
+    - configserver://t3zk-zook-intr-client-pca-t3zk-desa-bck.be.ndp.ocjc4pgpre02.serv.dev.dc.es.telefonica:5085
+
+---
+     
 tap:  
   cache:
     mode: localstorage   

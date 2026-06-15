@@ -1,4 +1,16 @@
 ### PROPIEDADES DE APLICACION
 ### Nota: No editar este fichero sin el consentimiento expreso de AT
 
+module:
+  application: bst3
+  type: srv-nuc-jee
+  name: srv-nuc-jee-PruebaGitHub
+  version: 4
+  
+spring:
+  application:
+    name: bst3-srv-nuc-jee-pruebagithub-4
+
+---
+
 tap.web.filters.squiggly: false

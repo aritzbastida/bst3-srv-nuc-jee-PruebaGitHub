@@ -4,12 +4,10 @@ import static com.telefonica.coco.core.domain.exceptions.TechnicalExceptionType.
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.telefonica.bst3.srv.nuc.pruebagithub.msg.getbank.GetBank_IN;
@@ -20,12 +18,11 @@ import com.telefonica.coco.core.domain.exceptions.TechnicalException;
 import com.telefonica.tran.comarq.cc.error.TE_Excepcion;
 import com.telefonica.tran.comarq.cc.metadatos.TE_Metadatos;
 
-@Ignore // TODO Remove this annotation after coding integration tests
-@RunWith(SpringRunner.class)
+@Disabled // TODO Remove this annotation after coding integration tests
 @ServiceTest
 @Transactional
 @Sql(scripts = "/data/insert.sql")
-public class PruebaGitHubServiceTest {
+class PruebaGitHubServiceTest {
 
     @Autowired
     private PruebaGitHubService pruebaGitHubService;
@@ -33,7 +30,7 @@ public class PruebaGitHubServiceTest {
     // TODO @MockBean your external dependencies here (cliews, cliers)
 
     @Test
-    public void testGetBank() throws TE_Excepcion {
+    void testGetBank() throws TE_Excepcion {
         // Given
         GetBank_IN in = null;
         TE_Metadatos metadata = null;
@@ -45,7 +42,7 @@ public class PruebaGitHubServiceTest {
     }
 
     @Test
-    public void testGetBankOffice() throws TE_Excepcion {
+    void testGetBankOffice() throws TE_Excepcion {
         // Given
         TE_Metadatos metadata = null;
         // When
@@ -56,7 +53,7 @@ public class PruebaGitHubServiceTest {
     }
 
     @Test
-    public void testLoadFileRecord() throws TE_Excepcion {
+    void testLoadFileRecord() throws TE_Excepcion {
         // Given
         LoadFileRecord_IN in = null;
         // When
@@ -67,7 +64,7 @@ public class PruebaGitHubServiceTest {
     }
 
     @Test
-    public void testReadFileRecord() throws TE_Excepcion {
+    void testReadFileRecord() throws TE_Excepcion {
         // Given
         ReadFileRecord_IN in = null;
         // When
