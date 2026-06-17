@@ -29,6 +29,11 @@ targetNamespace="http://telefonica.com/bst3/srv/PruebaGitHub/msg/readFileRecord-
          <xsd:documentation>File directory path.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Type" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+         <xsd:documentation>File type</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>	  
      </xsd:sequence>
  </xsd:complexType>
  <xsd:element name="ReadFileRecord_IN" type="xsd_1:ReadFileRecord_IN" />
