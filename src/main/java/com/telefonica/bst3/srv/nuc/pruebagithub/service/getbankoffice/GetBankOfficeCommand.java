@@ -21,6 +21,8 @@ public class GetBankOfficeCommand {
 
     public GetBankOffice_OUT execute(TE_Metadatos te_Metadatos) throws TE_Excepcion {
 
-        return new GetBankOffice_OUT();
+        // TODO Develop your code here
+        logger.info("Not implemented yet");
+        return null;
     }
 }

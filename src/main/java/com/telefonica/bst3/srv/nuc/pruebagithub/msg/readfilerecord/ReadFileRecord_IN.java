@@ -16,41 +16,41 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;p&gt;The following schema fragment specifies the expected content contained within this class.
  * 
  * &lt;pre&gt; &amp;lt;complexType name="ReadFileRecord_IN"&amp;gt; &amp;lt;complexContent&amp;gt; &amp;lt;restriction
- * base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt; &amp;lt;sequence&amp;gt; &amp;lt;element name="FilePath"
- * type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt; &amp;lt;/sequence&amp;gt; &amp;lt;/restriction&amp;gt;
- * &amp;lt;/complexContent&amp;gt; &amp;lt;/complexType&amp;gt; &lt;/pre&gt;
+ * base="{http://www.w3.org/2001/XMLSchema}anyType"&amp;gt; &amp;lt;sequence&amp;gt; &amp;lt;element
+ * name="FilePathChanged" type="{http://www.w3.org/2001/XMLSchema}string"/&amp;gt; &amp;lt;/sequence&amp;gt;
+ * &amp;lt;/restriction&amp;gt; &amp;lt;/complexContent&amp;gt; &amp;lt;/complexType&amp;gt; &lt;/pre&gt;
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ReadFileRecord_IN", propOrder = { "filePath" })
+@XmlType(name = "ReadFileRecord_IN", propOrder = { "filePathChanged" })
 @XmlRootElement(name = "ReadFileRecord_IN")
 public class ReadFileRecord_IN implements Serializable {
 
     private final static long serialVersionUID = 1L;
-    @XmlElement(name = "FilePath", required = true)
+    @XmlElement(name = "FilePathChanged", required = true)
     @NotNull
-    protected String filePath;
+    protected String filePathChanged;
 
     /**
-     * Gets the value of the filePath property.
+     * Gets the value of the filePathChanged property.
      * 
      * @return possible object is {@link String }
      * 
      */
-    public String getFilePath() {
-        return filePath;
+    public String getFilePathChanged() {
+        return filePathChanged;
     }
 
     /**
-     * Sets the value of the filePath property.
+     * Sets the value of the filePathChanged property.
      * 
      * @param value
      *            allowed object is {@link String }
      * 
      */
-    public void setFilePath(String value) {
-        this.filePath = value;
+    public void setFilePathChanged(String value) {
+        this.filePathChanged = value;
     }
 
 }

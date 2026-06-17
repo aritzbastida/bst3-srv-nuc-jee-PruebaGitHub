@@ -21,6 +21,8 @@ public class ReadFileRecordCommand {
 
     public ReadFileRecord_OUT execute(ReadFileRecord_IN in) throws TE_Excepcion {
 
-        return new ReadFileRecord_OUT();
+        // TODO Develop your code here
+        logger.info("Not implemented yet");
+        return null;
     }
 }
